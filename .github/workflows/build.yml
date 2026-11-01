@@ -44,7 +44,7 @@ jobs:
         run: |
           set -o pipefail
           xcodebuild -version
-          xcodebuild archive -project LiveContainer.xcodeproj -scheme LiveContainer -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -arch arm64 -archivePath "$RUNNER_TEMP/Strata-zh-Hans.xcarchive" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" 2>&1 | tee "$RUNNER_TEMP/strata-build.log"
+          xcodebuild archive -project LiveContainer.xcodeproj -scheme LiveContainer -configuration Release -sdk iphoneos -destination 'generic/platform=iOS' -archivePath "$RUNNER_TEMP/Strata-zh-Hans.xcarchive" CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" 2>&1 | tee "$RUNNER_TEMP/strata-build.log"
       - name: Pack archive
         run: tar -C "$RUNNER_TEMP" -czf "$RUNNER_TEMP/Strata-zh-Hans.xcarchive.tar.gz" Strata-zh-Hans.xcarchive
       - name: Upload unsigned archive
